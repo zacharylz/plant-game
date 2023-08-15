@@ -87,7 +87,8 @@ const App = () => {
         {/* Main Game Column */}
         <Stack spacing={3} alignItems='flex-start' sx={{width:0.5, height:1}}>
           {/* Maturity Stack */}
-          <Stack direction='row' justifyContent='flex-end' sx={{ width:1}}>
+          {energyGain > 50 ?
+            <Stack direction='row' justifyContent='flex-end' sx={{height:0.25, width:1}}>
             <Typography variant='h4' sx={{color:'#b71c1c'}}>Maturity  </Typography>
             <Stack alignItems='flex-start' spacing={1} sx={{ border:1, borderColor:'#b71c1c', borderRadius:1, width:0.8, p:'10px'}}>
               {energyGain > 50 ? 
@@ -117,9 +118,10 @@ const App = () => {
               />:
               <Box sx={{height:'10vh'}}></Box>}
             </Stack>
-          </Stack>
+          </Stack>:
+          <Box sx={{height:0.25}}></Box>}
           {/* Leaves Stack */}
-          <Stack direction='row' justifyContent='flex-end' sx={{ width:1}}>
+          <Stack direction='row' justifyContent='flex-end' sx={{height:0.35, width:1}}>
             <Typography variant='h4' sx={{color:'#1b5e20'}}>Leaves  </Typography>
             <Stack alignItems='flex-start' spacing={1} sx={{ border:1, borderColor:'#1b5e20', borderRadius:1, width:0.8, p:'10px'}}>
               <UpgradeCard
@@ -160,11 +162,11 @@ const App = () => {
             </Stack>          
           </Stack>
           {/* Roots Stack */}
-          <Stack direction='row' justifyContent='flex-end' sx={{ width:1}}>
+          {energyGain > 10 ?
+          <Stack direction='row' justifyContent='flex-end' sx={{height:0.25,width:1}}>
             <Typography variant='h4' sx={{color:'#5d4037'}}>Roots  </Typography>
             <Stack alignItems='flex-start' spacing={1} sx={{ border:1, borderColor:'#5d4037', borderRadius:1, width:0.8, p:'10px'}}>
-              {energyGain > 10 ?
-                <UpgradeCard
+              <UpgradeCard
                 energy={energy}
                 setEnergy={setEnergy}
                 upgrades={upgrades}
@@ -174,8 +176,7 @@ const App = () => {
                 cost={10 ** (2+upgrades.grow_roots)}
                 button_title="Grow Roots"
                 description="Growing leaves costs less energy"
-              />:
-              <Box sx={{height:'10vh'}}></Box>}
+              />
               {energyGain > 80 ?
                 <UpgradeCard
                 energy={energy}
@@ -190,7 +191,8 @@ const App = () => {
               />:
               <Box sx={{height:'10vh'}}></Box>}
             </Stack>
-          </Stack>
+          </Stack>:
+          <Box sx={{height:0.25}}></Box>}
         </Stack>
         {/* Text Column */}
         <Stack justifyContent='flex-start' alignItems='flex-start' sx={{width:0.30, height:1, p:8}}>
