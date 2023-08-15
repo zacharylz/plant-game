@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/plant-game/static/js/main.3b7d1eef.js",
+    "index.html": "/plant-game/index.html",
+    "main.3b7d1eef.js.map": "/plant-game/static/js/main.3b7d1eef.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.3b7d1eef.js"
+  ]
+}
